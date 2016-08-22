@@ -80,7 +80,7 @@ describe OutboundWebhook do
   describe "#connection" do
     before do
       @webhook = OutboundWebhook.create!(selected_webhook)
-      @connection = @webhook.connection
+      @connection = @webhook.send(:connection)
 
       assert_equal selected_webhook[:url], @connection.url_prefix.to_s
     end
